@@ -102,7 +102,7 @@ namespace Generals_Sharp
                         }
 
                         // Would we be attacking a city? Don't attack cities.
-                        if (cities[endIndex] >= 0)
+                        if (Array.Exists(cities, ele => ele == endIndex))
                         {
                             continue;
                         }

@@ -35,6 +35,11 @@ namespace Generals_Sharp
             {
                 OnDisconnect?.Invoke(this, null);
             });
+            socket.On("game_start", (d) =>
+            {
+                var data = JsonConvert.DeserializeObject<GameStart>(d.ToString());
+                playerIndex = data.playerIndex;
+            });
 
             socket.On("game_update", (d) =>
             {
